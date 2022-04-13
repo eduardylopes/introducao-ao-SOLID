@@ -6,7 +6,7 @@ import { showUserProfileController } from "../modules/users/useCases/showUserPro
 import { turnUserAdminController } from "../modules/users/useCases/turnUserAdmin";
 
 const usersRoutes = Router();
-usersRoutes.post("/users", (request, response) =>
+usersRoutes.post("/", (request, response) =>
   createUserController.handle(request, response)
 );
 
