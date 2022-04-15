@@ -1,3 +1,5 @@
+import { User } from "modules/users/model/User";
+
 import { IUsersRepository } from "../../repositories/IUsersRepository";
 
 interface IRequest {
@@ -12,14 +14,16 @@ class CreateUserUseCase {
     this.usersRepository = usersRepository;
   }
 
-  execute({ name, email }: IRequest): void {
+  execute({ name, email }: IRequest): User {
     const userAlreadyExists = this.usersRepository.findByEmail(email);
 
     if (userAlreadyExists) {
       throw new Error("User already exists!");
     }
 
-    this.usersRepository.create({ name, email });
+    const user = this.usersRepository.create({ name, email });
+
+    return user;
   }
 }
 
