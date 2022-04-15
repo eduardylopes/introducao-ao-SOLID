@@ -42,7 +42,10 @@ class UsersRepository implements IUsersRepository {
     return user;
   }
 
-  turnAdmin(receivedUser: User): void { }
+  turnAdmin(receivedUser: User): void {
+    receivedUser.admin = true;
+    receivedUser.updated_at = new Date();
+  }
 
   list(): User[] {
     const { users } = this;
