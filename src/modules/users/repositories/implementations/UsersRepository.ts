@@ -50,8 +50,7 @@ class UsersRepository implements IUsersRepository {
   }
 
   list(): User[] {
-    const { users } = this;
-    return users;
+    return this.users;
   }
 }
 
