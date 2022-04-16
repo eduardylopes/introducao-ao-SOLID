@@ -16,7 +16,7 @@ describe("CreateUserUseCase", () => {
       email: "danilo@rocketseat.com",
     });
 
-    expect(usersRepository.list()).toStrictEqual([user]);
+    expect(usersRepository.list()).toStrictEqual(user);
   });
 
   it("should not be able to create new users when email is already taken", () => {
